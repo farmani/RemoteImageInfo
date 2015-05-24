@@ -1,11 +1,11 @@
 <?php
-
+namespace RemoteImageInfo;
 /**
  * RemoteImageInfo - Because sometimes you just want the image size!
  * Based on the Ruby Implementation by Steven Sykes (https://github.com/sdsykes/fastimage)
  *
  * Copyright (c) 2015 Ramin Farmani
- * Tom Moor, http://farmani.ir
+ * Ramin Farmani, http://farmani.ir
  *
  * MIT Licensed
  * @version 0.1
