@@ -1,5 +1,5 @@
 {
-    "name": "farmani/RemoteImageInfo",
+    "name": "farmani/remote-image-info",
     "description": "get image information without downloading whole file",
     "type": "library",
     "homepage": "https://github.com/farmani/RemoteImageInfo",
