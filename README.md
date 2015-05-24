@@ -1,4 +1,4 @@
-# FastImage
+# RemoteImageInfo
 
 FastImage finds the dimensions or filetype of a remote image file given its uri by fetching as little as needed, based on the excellent [Ruby implementation by Stephen Sykes](https://github.com/sdsykes/fastimage).
 
@@ -7,17 +7,17 @@ FastImage finds the dimensions or filetype of a remote image file given its uri 
 ```php
 <?php 
 		
-require 'Fastimage.php';
+require 'RemoteImageInfo.php';
 		
 $uri = "http://farm9.staticflickr.com/8151/7357346052_54b8944f23_b.jpg";
 		
 // loading image into constructor
-$image = new FastImage($uri);
+$image = new RemoteImageInfo($uri);
 list($width, $height) = $image->getSize();
 echo "dimensions: " . $width . "x" . $height;
 
 // or, create an instance and use the 'load' method
-$image = new FastImage();
+$image = new RemoteImageInfo();
 $image->load($uri);
 $type = $image->getType();
 echo "filetype: " . $type;
@@ -34,10 +34,10 @@ echo "filetype: " . $type;
 
 ## License
 
-FastImage is released under the MIT license. It is simple and easy to understand and places almost no restrictions on what you can do with the software. [More Information](http://en.wikipedia.org/wiki/MIT_License)
+RemoteImageInfo is released under the MIT license. It is simple and easy to understand and places almost no restrictions on what you can do with the software. [More Information](http://en.wikipedia.org/wiki/MIT_License)
 
 
 ## Download
 
 Releases are available for download from
-[GitHub](http://github.com/tommoor/fastimage/downloads).
+[GitHub](http://farmani.github.io/RemoteImageInfo/).
