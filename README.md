@@ -13,14 +13,19 @@ $uri = "http://farm9.staticflickr.com/8151/7357346052_54b8944f23_b.jpg";
 		
 // loading image into constructor
 $image = new RemoteImageInfo($uri);
-list($width, $height) = $image->getSize();
-echo "dimensions: " . $width . "x" . $height;
+if($image->checkLoad()) {
+    list($width, $height) = $image->getSize();
+    echo "dimensions: " . $width . "x" . $height;
+}
+
 
 // or, create an instance and use the 'load' method
 $image = new RemoteImageInfo();
 $image->load($uri);
-$type = $image->getType();
-echo "filetype: " . $type;
+if($image->checkLoad()) {
+    $type = $image->getType();
+    echo "filetype: " . $type;
+}
 ```
 
 ## References
