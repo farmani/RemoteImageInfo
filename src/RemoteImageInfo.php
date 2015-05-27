@@ -27,7 +27,7 @@ class RemoteImageInfo
         if ($this->handle) $this->close();
 
         try {
-            $this->handle = fopen($uri, 'r');
+            $this->handle = @fopen($uri, 'r');
             if (!$this->handle) {
                 echo "File open failed.\n";
             }
