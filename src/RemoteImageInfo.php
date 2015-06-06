@@ -180,6 +180,7 @@ class RemoteImageInfo
             while (strlen($this->str) < $end && $response !== false) {
                 // read more from the file handle
                 $need = $end - ftell($this->handle);
+                if($need == 0) return false;
                 if ($response = fread($this->handle, $need)) {
                     $this->str .= $response;
                 } else {
@@ -197,8 +198,10 @@ class RemoteImageInfo
     private function getByte()
     {
         $c = $this->getChars(1);
+        if($c === false) return false;
         $b = unpack("C", $c);
 
+        if($b === false) return false;
         return reset($b);
     }
 
