@@ -158,6 +158,9 @@ class RemoteImageInfo
                     break;
 
                 case 'doskip':
+                    if($skip == 0) {
+                        return array(0,0);
+                    }
                     $this->getChars($skip);
                     $state = 'started';
                     break;
