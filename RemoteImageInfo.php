@@ -212,7 +212,9 @@ class RemoteImageInfo
     {
         $size = unpack("C*", $str);
 
-        return ($size[1] << 8) + $size[2];
+        if(isset($size[1]) && isset($size[2]))
+            return ($size[1] << 8) + $size[2];
+        return 0;
     }
 
     public function __destruct()
