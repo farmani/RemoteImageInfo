@@ -22,6 +22,9 @@ class RemoteImageInfo
         if ($uri) $this->load($uri);
     }
 
+    /**
+     * @param $uri
+     */
     public function load($uri)
     {
         if ($this->handle) $this->close();
@@ -36,11 +39,17 @@ class RemoteImageInfo
         }
     }
 
+    /**
+     * @return bool
+     */
     public function checkLoad()
     {
         return boolval($this->handle);
     }
 
+    /**
+     *
+     */
     public function close()
     {
         if ($this->handle) {
@@ -51,6 +60,9 @@ class RemoteImageInfo
         }
     }
 
+    /**
+     * @return array|bool
+     */
     public function getSize()
     {
         $this->strpos = 0;
@@ -61,6 +73,9 @@ class RemoteImageInfo
         return false;
     }
 
+    /**
+     * @return bool|string
+     */
     public function getType()
     {
         $this->strpos = 0;
@@ -82,6 +97,9 @@ class RemoteImageInfo
         return $this->type;
     }
 
+    /**
+     * @return array|null
+     */
     private function parseSize()
     {
         $this->strpos = 0;
@@ -100,18 +118,27 @@ class RemoteImageInfo
         return null;
     }
 
+    /**
+     * @return array
+     */
     private function parseSizeForPNG()
     {
         $chars = $this->getChars(25);
         return unpack("N*", substr($chars, 16, 8));
     }
 
+    /**
+     * @return array
+     */
     private function parseSizeForGIF()
     {
         $chars = $this->getChars(11);
         return unpack("S*", substr($chars, 6, 4));
     }
 
+    /**
+     * @return array
+     */
     private function parseSizeForBMP()
     {
         $chars = $this->getChars(29);
@@ -121,6 +148,9 @@ class RemoteImageInfo
         return (reset($type) == 40) ? unpack('L*', substr($chars, 4)) : unpack('L*', substr($chars, 4, 8));
     }
 
+    /**
+     * @return array
+     */
     private function parseSizeForJPEG()
     {
         $state = null;
@@ -173,6 +203,10 @@ class RemoteImageInfo
         }
     }
 
+    /**
+     * @param $n
+     * @return bool|string
+     */
     private function getChars($n)
     {
         $response = null;
@@ -198,6 +232,9 @@ class RemoteImageInfo
         return $result;
     }
 
+    /**
+     * @return bool|mixed
+     */
     private function getByte()
     {
         $c = $this->getChars(1);
@@ -208,6 +245,10 @@ class RemoteImageInfo
         return reset($b);
     }
 
+    /**
+     * @param $str
+     * @return int
+     */
     private function readInt($str)
     {
         $size = unpack("C*", $str);
@@ -217,6 +258,9 @@ class RemoteImageInfo
         return 0;
     }
 
+    /**
+     * 
+     */
     public function __destruct()
     {
         $this->close();
