@@ -1,18 +1,30 @@
 {
-    "name": "farmani/remote-image-info",
-    "description": "get image information without downloading whole file",
-    "type": "library",
-    "homepage": "https://github.com/farmani/RemoteImageInfo",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Ramin Farmani",
-            "email": "ramin.farmani@gmail.com"
-        }
-    ],
-    "require": {
-        "ext-curl": "*"
-    },
-    "require-dev": {
+  "name": "farmani/remote-image-info",
+  "description": "get image information without downloading whole file",
+  "keywords": ["image", "dimension", "size", "remote", "without download"],
+  "type": "library",
+  "homepage": "https://github.com/farmani/RemoteImageInfo",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ramin Farmani",
+      "email": "ramin.farmani@gmail.com"
     }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "ext-curl": "*"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "RemoteImageInfo\\": "src/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.1-dev"
+    }
+  }
 }
